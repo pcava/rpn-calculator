@@ -1,6 +1,7 @@
 /* See the file "LICENSE" for the full license governing this code. */
 package com.dalelotts.rpn;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -12,15 +13,26 @@ import java.util.Scanner;
 
 final class Calculator {
 
+	private Scanner scanner;
+	private PrintStream output;
+
+	public Calculator(Scanner scanner, PrintStream output)
+	{
+		this.scanner = scanner;
+		this.output = output;
+	}
+
 	public void run() {
 
-		final Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter values followed by operation symbols:");
-		System.out.println("(Press CTRL+Z to end the program):");
+		output.println("Please enter values followed by operation symbols:");
+		output.println("(Press CTRL+Z to end the program):");
 
 		while (scanner.hasNext()) {
 			final String tokenString = scanner.next();
-			System.out.println(tokenString);
+			output.println(tokenString);
 		}
+
+
 	}
 }
+
